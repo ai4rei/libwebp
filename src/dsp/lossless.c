@@ -381,9 +381,10 @@ STATIC_DECL void FUNC_NAME(const VP8LTransform* const transform,               \
   }                                                                            \
 }
 
+#define not_static /* older compilers do not support empty macro args */
 COLOR_INDEX_INVERSE(ColorIndexInverseTransform_C, MapARGB_C, static,
                     uint32_t, 32b, VP8GetARGBIndex, VP8GetARGBValue)
-COLOR_INDEX_INVERSE(VP8LColorIndexInverseTransformAlpha, MapAlpha_C, ,
+COLOR_INDEX_INVERSE(VP8LColorIndexInverseTransformAlpha, MapAlpha_C, not_static,
                     uint8_t, 8b, VP8GetAlphaIndex, VP8GetAlphaValue)
 
 #undef COLOR_INDEX_INVERSE
