@@ -969,7 +969,7 @@ static void DC8uvNoTop(uint8_t* dst) {   // DC with no top samples
 }
 
 static void DC8uvNoTopLeft(uint8_t* dst) {   // DC with nothing
-  const uint64_t out = 0x8080808080808080ULL;
+  const uint64_t out = UINT64_C(0x8080808080808080);
   STORE8x8(out, dst);
 }
 

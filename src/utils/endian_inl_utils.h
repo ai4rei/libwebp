@@ -83,9 +83,9 @@ static WEBP_INLINE uint64_t BSwap64(uint64_t x) {
 #elif defined(_MSC_VER)
   return (uint64_t)_byteswap_uint64(x);
 #else  // generic code for swapping 64-bit values (suggested by bdb@)
-  x = ((x & 0xffffffff00000000ull) >> 32) | ((x & 0x00000000ffffffffull) << 32);
-  x = ((x & 0xffff0000ffff0000ull) >> 16) | ((x & 0x0000ffff0000ffffull) << 16);
-  x = ((x & 0xff00ff00ff00ff00ull) >>  8) | ((x & 0x00ff00ff00ff00ffull) <<  8);
+  x = ((x & UINT64_C(0xffffffff00000000)) >> 32) | ((x & UINT64_C(0x00000000ffffffff)) << 32);
+  x = ((x & UINT64_C(0xffff0000ffff0000)) >> 16) | ((x & UINT64_C(0x0000ffff0000ffff)) << 16);
+  x = ((x & UINT64_C(0xff00ff00ff00ff00)) >>  8) | ((x & UINT64_C(0x00ff00ff00ff00ff)) <<  8);
   return x;
 #endif  // HAVE_BUILTIN_BSWAP64
 }

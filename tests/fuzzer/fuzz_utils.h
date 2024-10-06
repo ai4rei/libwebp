@@ -187,7 +187,7 @@ void SetOptimization(VP8CPUInfo default_VP8GetCPUInfo, uint32_t index);
 //------------------------------------------------------------------------------
 
 // See https://developers.google.com/speed/webp/docs/riff_container.
-static constexpr size_t kMaxWebPFileSize = (1ull << 32) - 2;  // 4 GiB - 2
+static constexpr size_t kMaxWebPFileSize = (UINT64_C(1) << 32) - 2;  // 4 GiB - 2
 
 std::vector<std::string> GetDictionaryFromFiles(
     const std::vector<std::string_view>& file_paths);

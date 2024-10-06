@@ -3307,8 +3307,8 @@ SWIG_AsVal_unsigned_SS_long (PyObject *obj, unsigned long *val)
 #if !defined(SWIG_NO_LLONG_MAX)
 # if !defined(LLONG_MAX) && defined(__GNUC__) && defined (__LONG_LONG_MAX__)
 #   define LLONG_MAX __LONG_LONG_MAX__
-#   define LLONG_MIN (-LLONG_MAX - 1LL)
-#   define ULLONG_MAX (LLONG_MAX * 2ULL + 1ULL)
+#   define LLONG_MIN (-LLONG_MAX - INT64_C(1))
+#   define ULLONG_MAX (LLONG_MAX * UINT64_C(2) + UINT64_C(1))
 # endif
 #endif
 
@@ -3342,7 +3342,7 @@ SWIG_AsVal_unsigned_SS_long_SS_long (PyObject *obj, unsigned long long *val)
   }
 #ifdef SWIG_PYTHON_CAST_MODE
   {
-    const double mant_max = 1LL << DBL_MANT_DIG;
+    const double mant_max = INT64_C(1) << DBL_MANT_DIG;
     double d;
     res = SWIG_AsVal_double (obj,&d);
     if (SWIG_IsOK(res) && !SWIG_CanCastAsInteger(&d, 0, mant_max))

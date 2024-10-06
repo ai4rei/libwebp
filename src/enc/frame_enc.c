@@ -29,7 +29,7 @@
                               VP8_FRAME_HEADER_SIZE)
 #define DQ_LIMIT 0.4  // convergence is considered reached if dq < DQ_LIMIT
 // we allow 2k of extra head-room in PARTITION0 limit.
-#define PARTITION0_SIZE_LIMIT ((VP8_MAX_PARTITION0_SIZE - 2048ULL) << 11)
+#define PARTITION0_SIZE_LIMIT ((VP8_MAX_PARTITION0_SIZE - UINT64_C(2048)) << 11)
 
 static float Clamp(float v, float min, float max) {
   return (v < min) ? min : (v > max) ? max : v;

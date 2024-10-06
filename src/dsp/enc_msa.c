@@ -604,7 +604,7 @@ static WEBP_INLINE void VerticalPred8x8(uint8_t* WEBP_RESTRICT dst,
     const uint64_t out = LD(top);
     STORE8x8(out, dst);
   } else {
-    const uint64_t out = 0x7f7f7f7f7f7f7f7fULL;
+    const uint64_t out = UINT64_C(0x7f7f7f7f7f7f7f7f);
     STORE8x8(out, dst);
   }
 }
@@ -627,7 +627,7 @@ static WEBP_INLINE void HorizontalPred8x8(uint8_t* WEBP_RESTRICT dst,
       left += 4;
     }
   } else {
-    const uint64_t out = 0x8181818181818181ULL;
+    const uint64_t out = UINT64_C(0x8181818181818181);
     STORE8x8(out, dst);
   }
 }
@@ -667,7 +667,7 @@ static WEBP_INLINE void TrueMotion8x8(uint8_t* WEBP_RESTRICT dst,
     if (top != NULL) {
       VerticalPred8x8(dst, top);
     } else {
-      const uint64_t out = 0x8181818181818181ULL;
+      const uint64_t out = UINT64_C(0x8181818181818181);
       STORE8x8(out, dst);
     }
   }

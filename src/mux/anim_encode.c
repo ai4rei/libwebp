@@ -104,7 +104,7 @@ struct WebPAnimEncoder {
 // -----------------------------------------------------------------------------
 // Life of WebPAnimEncoder object.
 
-#define DELTA_INFINITY      (1ULL << 32)
+#define DELTA_INFINITY      (UINT64_C(1) << 32)
 #define KEYFRAME_NONE       (-1)
 
 // Reset the counters in the WebPAnimEncoder.

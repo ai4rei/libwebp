@@ -30,7 +30,7 @@ WebPMux* WebPNewInternal(int version) {
   if (WEBP_ABI_IS_INCOMPATIBLE(version, WEBP_MUX_ABI_VERSION)) {
     return NULL;
   } else {
-    WebPMux* const mux = (WebPMux*)WebPSafeMalloc(1ULL, sizeof(WebPMux));
+    WebPMux* const mux = (WebPMux*)WebPSafeMalloc(UINT64_C(1), sizeof(WebPMux));
     if (mux != NULL) MuxInit(mux);
     return mux;
   }
@@ -107,7 +107,7 @@ static WebPMuxError CreateFrameData(
   assert(info->dispose_method == (info->dispose_method & 1));
   // Note: assertion on upper bounds is done in PutLE24().
 
-  frame_bytes = (uint8_t*)WebPSafeMalloc(1ULL, frame_size);
+  frame_bytes = (uint8_t*)WebPSafeMalloc(UINT64_C(1), frame_size);
   if (frame_bytes == NULL) return WEBP_MUX_MEMORY_ERROR;
 
   PutLE24(frame_bytes + 0, info->x_offset / 2);
@@ -627,7 +627,7 @@ WebPMuxError WebPMuxAssemble(WebPMux* mux, WebPData* assembled_data) {
        + ChunkListDiskSize(mux->exif_) + ChunkListDiskSize(mux->xmp_)
        + ChunkListDiskSize(mux->unknown_) + RIFF_HEADER_SIZE;
 
-  data = (uint8_t*)WebPSafeMalloc(1ULL, size);
+  data = (uint8_t*)WebPSafeMalloc(UINT64_C(1), size);
   if (data == NULL) return WEBP_MUX_MEMORY_ERROR;
 
   // Emit header & chunks.

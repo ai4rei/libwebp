@@ -277,7 +277,7 @@ static uint64_t InitialHuffmanCost(void) {
   static const uint64_t kHuffmanCodeOfHuffmanCodeSize = CODE_LENGTH_CODES * 3;
   // Subtract a bias of 9.1.
   return (kHuffmanCodeOfHuffmanCodeSize << LOG_2_PRECISION_BITS) -
-         DivRound(91ll << LOG_2_PRECISION_BITS, 10);
+         DivRound(INT64_C(91) << LOG_2_PRECISION_BITS, 10);
 }
 
 // Finalize the Huffman cost based on streak numbers and length type (<3 or >=3)

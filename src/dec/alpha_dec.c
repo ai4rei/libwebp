@@ -27,7 +27,7 @@
 
 // Allocates a new alpha decoder instance.
 WEBP_NODISCARD static ALPHDecoder* ALPHNew(void) {
-  ALPHDecoder* const dec = (ALPHDecoder*)WebPSafeCalloc(1ULL, sizeof(*dec));
+  ALPHDecoder* const dec = (ALPHDecoder*)WebPSafeCalloc(UINT64_C(1), sizeof(*dec));
   return dec;
 }
 
