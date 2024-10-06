@@ -451,7 +451,7 @@ static void GetCombinedEntropyUnrefined_C(
 
 //------------------------------------------------------------------------------
 
-void VP8LSubtractGreenFromBlueAndRed_C(uint32_t* argb_data, int num_pixels) {
+void VP8LSubtractGreenFromBlueAndRed_C(uint32_t* WEBP_RESTRICT argb_data, int num_pixels) {
   int i;
   for (i = 0; i < num_pixels; ++i) {
     const int argb = (int)argb_data[i];

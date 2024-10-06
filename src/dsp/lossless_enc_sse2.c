@@ -26,7 +26,7 @@
 //------------------------------------------------------------------------------
 // Subtract-Green Transform
 
-static void SubtractGreenFromBlueAndRed_SSE2(uint32_t* argb_data,
+static void SubtractGreenFromBlueAndRed_SSE2(uint32_t* WEBP_RESTRICT argb_data,
                                              int num_pixels) {
   int i;
   for (i = 0; i + 4 <= num_pixels; i += 4) {

@@ -128,13 +128,13 @@ void VP8LTransformColorInverse_C(const VP8LMultipliers* const m,
                                  const uint32_t* src, int num_pixels,
                                  uint32_t* dst);
 
-void VP8LConvertBGRAToRGB_C(const uint32_t* src, int num_pixels, uint8_t* dst);
-void VP8LConvertBGRAToRGBA_C(const uint32_t* src, int num_pixels, uint8_t* dst);
-void VP8LConvertBGRAToRGBA4444_C(const uint32_t* src,
-                                 int num_pixels, uint8_t* dst);
-void VP8LConvertBGRAToRGB565_C(const uint32_t* src,
-                               int num_pixels, uint8_t* dst);
-void VP8LConvertBGRAToBGR_C(const uint32_t* src, int num_pixels, uint8_t* dst);
+void VP8LConvertBGRAToRGB_C(const uint32_t* WEBP_RESTRICT src, int num_pixels, uint8_t* WEBP_RESTRICT dst);
+void VP8LConvertBGRAToRGBA_C(const uint32_t* WEBP_RESTRICT src, int num_pixels, uint8_t* WEBP_RESTRICT dst);
+void VP8LConvertBGRAToRGBA4444_C(const uint32_t* WEBP_RESTRICT src,
+                                 int num_pixels, uint8_t* WEBP_RESTRICT dst);
+void VP8LConvertBGRAToRGB565_C(const uint32_t* WEBP_RESTRICT src,
+                               int num_pixels, uint8_t* WEBP_RESTRICT dst);
+void VP8LConvertBGRAToBGR_C(const uint32_t* WEBP_RESTRICT src, int num_pixels, uint8_t* WEBP_RESTRICT dst);
 void VP8LAddGreenToBlueAndRed_C(const uint32_t* src, int num_pixels,
                                 uint32_t* dst);
 
@@ -144,7 +144,7 @@ void VP8LDspInit(void);
 //------------------------------------------------------------------------------
 // Encoding
 
-typedef void (*VP8LProcessEncBlueAndRedFunc)(uint32_t* dst, int num_pixels);
+typedef void (*VP8LProcessEncBlueAndRedFunc)(uint32_t* WEBP_RESTRICT dst, int num_pixels);
 extern VP8LProcessEncBlueAndRedFunc VP8LSubtractGreenFromBlueAndRed;
 typedef void (*VP8LTransformColorFunc)(
     const VP8LMultipliers* WEBP_RESTRICT const m, uint32_t* WEBP_RESTRICT dst,
@@ -227,8 +227,8 @@ typedef void (*VP8LGetEntropyUnrefinedFunc)(
     VP8LStreaks* WEBP_RESTRICT const stats);
 extern VP8LGetEntropyUnrefinedFunc VP8LGetEntropyUnrefined;
 
-void VP8LBitsEntropyUnrefined(const uint32_t* const array, int n,
-                              VP8LBitEntropy* const entropy);
+void VP8LBitsEntropyUnrefined(const uint32_t* WEBP_RESTRICT const array, int n,
+                              VP8LBitEntropy* WEBP_RESTRICT const entropy);
 
 typedef void (*VP8LAddVectorFunc)(const uint32_t* WEBP_RESTRICT a,
                                   const uint32_t* WEBP_RESTRICT b,

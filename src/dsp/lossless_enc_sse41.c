@@ -70,7 +70,7 @@ static uint32_t ExtraCostCombined_SSE41(const uint32_t* WEBP_RESTRICT const a,
 //------------------------------------------------------------------------------
 // Subtract-Green Transform
 
-static void SubtractGreenFromBlueAndRed_SSE41(uint32_t* argb_data,
+static void SubtractGreenFromBlueAndRed_SSE41(uint32_t* WEBP_RESTRICT argb_data,
                                               int num_pixels) {
   int i;
   const __m128i kCstShuffle = _mm_set_epi8(-1, 13, -1, 13, -1, 9, -1, 9,
